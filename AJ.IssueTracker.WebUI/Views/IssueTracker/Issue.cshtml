@@ -1,0 +1,90 @@
+﻿@model AJ.IssueTracker.Common.DTO.IssueDTO
+
+@using (Html.BeginForm("Issue","IssueTracker",FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="col-md-12 mb-3">
+                @Html.LabelFor(model => model.TicketNumber, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.TicketNumber, new { htmlAttributes = new { @class = "form-control", @readonly="true" } })
+                  
+                
+                    @Html.ValidationMessageFor(model => model.TicketNumber, "", new { @class = "text-danger" })
+              
+            </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.ProductId, htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.ProductId,Model.Products,new  { @class = "form-control"  })
+                        @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.ReasonId, htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.ReasonId,Model.Reasons, new  { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ReasonId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.FoundedOn, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.FoundedOn, new { htmlAttributes = new { @class = "form-control datecontrol" } })
+                        @Html.ValidationMessageFor(model => model.FoundedOn, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.DropDownListFor(model => model.Status,Model.Statuses,  new { @class = "form-control",@readonly = "true"} )
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.AssignedTo, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.AssignedTo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AssignedTo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.ResolvedOn, htmlAttributes: new { @class = "control-label" })
+
+                        @Html.EditorFor(model => model.ResolvedOn, new { htmlAttributes = new { @class = "form-control datecontrol" } })
+                        @Html.ValidationMessageFor(model => model.ResolvedOn, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(model => model.ResolutionDetail, htmlAttributes: new { @class = "control-label " })
+
+                        @Html.EditorFor(model => model.ResolutionDetail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ResolutionDetail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="mb-4">
+                    <div class="col-md-12 text-justify">
+                        <input type="submit" value="Generate Ticket" class="btn btn-primary btn-lg btn-block" />
+                    </div>
+                </div>
+            </div>
+            }
+<script>
+    $('.datecontrol').datepicker({
+        autoclose: true,
+        endDate: "+1",
+        defaultDate:'now'
+}).datepicker("setDate", "0");;
+</script>

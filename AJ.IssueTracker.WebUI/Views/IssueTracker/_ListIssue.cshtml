@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AJ.IssueTracker.Common.DTO.IssueDTO>
+
+<table class="table table-bordered bg-white">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TicketNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReasonId)
+        </th>      
+        <th>
+            @Html.DisplayNameFor(model => model.Detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+       <th>View</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.TicketNumber)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ProductId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ReasonId)
+    </td>   
+    <td>
+        @Html.DisplayFor(modelItem => item.Detail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Status)
+    </td>   
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.IssueId })
+    </td>
+</tr>
+}
+
+</table>

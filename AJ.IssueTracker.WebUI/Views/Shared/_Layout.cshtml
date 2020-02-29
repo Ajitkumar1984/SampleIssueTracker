@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AJ Issue Tracker</title>
+    @Styles.Render("~/Content/css")
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+</head>
+<body class="bg-light">
+    <div class="container">
+        <div class="text-center">
+            <a href="/" style="text-decoration:none"><h2>Issue Tracker Form</h2></a>
+            <p class="lead">Create and Manage the issues reported by users.</p>
+            <hr />
+        </div>
+        @RenderBody()
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+            <p class="mb-1">&copy; 2017-2018 Company Name</p>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Privacy</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Support</a></li>
+            </ul>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
